@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<windows.h>
 int main(){
     float a,b, bigger, smaller, a1, b1, m, y;
     scanf("%f %f", &a, &b);
