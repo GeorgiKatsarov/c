@@ -6,7 +6,7 @@ int main(){
     int *p1 = &a;
     int *p2 = &b;
     printf("Values: %d %d", *p1, *p2);
-    printf(" Adresses: %d %d", p1, p2);
+    printf(" Adresses: %x %x", p1, p2);
     int c = *p1 * *p2;
     printf(" Product: %d", c);
     int s = *p1 + *p2;
