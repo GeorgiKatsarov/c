@@ -21,6 +21,7 @@ int main() {
             printf("Invalid position\n");
             continue;
         }
+        scanf("%d", &pos);
         for (int i = n; i > pos; i--) {
             arr[i] = arr[i - 1];
         }
