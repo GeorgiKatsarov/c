@@ -19,6 +19,8 @@ int countOfEachLetterInStr(char str[]){
     }
 }
 int main(){
-    countOfEachLetterInStr("Georgi Georgiev");
+    char str[128];
+    scanf("%s", str);
+    countOfEachLetterInStr(str);
     return 0;
 }
