@@ -45,6 +45,24 @@ int compare(const void *a, const void *b) {
     return (*(int*)a - *(int*)b);
 }
 
+int georgiSort(int *arr, int size) {
+    for (int i = 0; i < size; i++)
+    {
+       for (int j = 0; j < size; j++)
+       {
+              if (arr[i] < arr[j])
+              {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+              }
+       }
+       
+    }
+    
+    return 0;
+}
+
 int main() {
     int size;
     int *numbers = readFromKeyInDynamicArray(&size);
@@ -52,7 +70,7 @@ int main() {
     printf("Въведените числа: ");
     printArray(numbers, size);
 
-    qsort(numbers, size, sizeof(int), compare);
+    georgiSort(numbers, size, sizeof(int), compare);
 
     printf("Сортирани числа: ");
     printArray(numbers, size);
