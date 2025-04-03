@@ -47,4 +47,5 @@ int main() {
     free(nonPrimes);
 
     return 0;
+    //realloc procheti kakvo e
 }

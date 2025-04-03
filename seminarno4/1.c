@@ -11,7 +11,7 @@ int main() {
     for (int i = 0; i < 3; i++) {
         flagRow = 0; 
         for (int j = 0; j < 4; j++) {
-            if (matrix[i][j] > matrix[i][j + 1]) {
+            if (matrix[i][j] < matrix[i][j + 1]) {
                 flagRow = 1;
                 break;
             }
@@ -22,7 +22,7 @@ int main() {
     for (int j = 0; j < 5; j++) {
         flagCol = 0; 
         for (int i = 0; i < 2; i++) {
-            if (matrix[i][j] < matrix[i + 1][j]) {
+            if (matrix[i][j] > matrix[i + 1][j]) {
                 flagCol = 1;
                 break;
             }

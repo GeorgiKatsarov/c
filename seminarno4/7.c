@@ -23,7 +23,7 @@ int main() {
         }
     }
 
-    int maxSum = -1e9;
+    int maxSum = 0;
     int startRow = 0, startCol = 0;
 
     for (int i = 0; i <= n - 3; i++) {
