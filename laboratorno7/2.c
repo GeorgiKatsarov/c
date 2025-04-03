@@ -41,40 +41,71 @@ void printArray(int *arr, int size) {
     printf("\n");
 }
 
-int compare(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b);
-}
-
 int georgiSort(int *arr, int size) {
-    for (int i = 0; i < size; i++)
-    {
-       for (int j = 0; j < size; j++)
-       {
-              if (arr[i] < arr[j])
-              {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (arr[i] < arr[j]) {
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
-              }
-       }
-       
+            }
+        }
     }
-    
     return 0;
 }
 
+void menu() {
+    printf("\nМеню:\n");
+    printf("1. Въведете числа\n");
+    printf("2. Принтирайте числата\n");
+    printf("3. Сортирайте числата\n");
+    printf("4. Изход\n");
+    printf("Изберете опция: ");
+}
+
 int main() {
-    int size;
-    int *numbers = readFromKeyInDynamicArray(&size);
+    int *numbers = NULL;
+    int size = 0;
+    int choice;
 
-    printf("Въведените числа: ");
-    printArray(numbers, size);
+    do {
+        menu();
+        scanf("%d", &choice);
 
-    georgiSort(numbers, size, sizeof(int), compare);
+        switch (choice) {
+            case 1:
+                if (numbers != NULL) {
+                    free(numbers);
+                }
+                numbers = readFromKeyInDynamicArray(&size);
+                break;
+            case 2:
+                if (numbers == NULL) {
+                    printf("Масивът е празен. Моля, въведете числа първо.\n");
+                } else {
+                    printf("Числата в масива: ");
+                    printArray(numbers, size);
+                }
+                break;
+            case 3:
+                if (numbers == NULL) {
+                    printf("Масивът е празен. Моля, въведете числа първо.\n");
+                } else {
+                    georgiSort(numbers, size);
+                    printf("Числата са сортирани.\n");
+                }
+                break;
+            case 4:
+                printf("Изход...\n");
+                break;
+            default:
+                printf("Невалидна опция. Опитайте отново.\n");
+        }
+    } while (choice != 4);
 
-    printf("Сортирани числа: ");
-    printArray(numbers, size);
+    if (numbers != NULL) {
+        free(numbers);
+    }
 
-    free(numbers); 
     return 0;
 }
