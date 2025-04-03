@@ -16,49 +16,45 @@ int* readFromKeyInDynamicArray(int* size) {
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
-    *size = n;
+    printf("\n");
     return arr;
 }
-
-void printDynamicArray(int* arr, int size) {
+int* printDynamicArray(int* arr) {
     printf("The elements of the array are:\n");
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < sizeof(arr)/sizeof(int); i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
+    return arr;
 }
-
-int sumDynamicArray(int* arr, int size) {
+int sumDynamicArray(int* arr) {
     int sum = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < sizeof(arr)/sizeof(int); i++) {
         sum += arr[i];
     }
     return sum;
 }
-
-int findBiggestElement(int* arr, int size) {
+int findBiggestElement(int* arr) {
     int biggest = arr[0];
-    for (int i = 1; i < size; i++) {
+    for (int i = 1; i < sizeof(arr)/sizeof(int); i++) {
         if (arr[i] > biggest) {
             biggest = arr[i];
         }
     }
     return biggest;
 }
-
-int findSmallestElement(int* arr, int size) {
+int findSmallestElement(int* arr) {
     int smallest = arr[0];
-    for (int i = 1; i < size; i++) {
+    for (int i = 1; i < sizeof(arr)/sizeof(int); i++) {
         if (arr[i] < smallest) {
             smallest = arr[i];
         }
     }
     return smallest;
 }
-
-int sumOfEvenElements(int* arr, int size) {
+int sumOfEvenElements(int* arr) {
     int sum = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < sizeof(arr)/sizeof(int); i++) {
         if (arr[i] % 2 == 0) {
             sum += arr[i];
         }
@@ -66,80 +62,27 @@ int sumOfEvenElements(int* arr, int size) {
     return sum;
 }
 
-void menu() {
-    printf("\nMenu:\n");
-    printf("1. Enter numbers\n");
-    printf("2. Print numbers\n");
-    printf("3. Sum of elements\n");
-    printf("4. Find biggest element\n");
-    printf("5. Find smallest element\n");
-    printf("6. Sum of even elements\n");
-    printf("7. Exit\n");
-    printf("Choose an option: ");
-}
-
-int main() {
-    int* arr = NULL;
-    int size = 0;
-    int choice;
-
-    do {
-        menu();
-        scanf("%d", &choice);
-
-        switch (choice) {
-            case 1:
-                if (arr != NULL) {
-                    free(arr);
-                }
-                arr = readFromKeyInDynamicArray(&size);
-                break;
-            case 2:
-                if (arr == NULL) {
-                    printf("Array is empty. Please enter numbers first.\n");
-                } else {
-                    printDynamicArray(arr, size);
-                }
-                break;
-            case 3:
-                if (arr == NULL) {
-                    printf("Array is empty. Please enter numbers first.\n");
-                } else {
-                    printf("Sum of elements: %d\n", sumDynamicArray(arr, size));
-                }
-                break;
-            case 4:
-                if (arr == NULL) {
-                    printf("Array is empty. Please enter numbers first.\n");
-                } else {
-                    printf("Biggest element: %d\n", findBiggestElement(arr, size));
-                }
-                break;
-            case 5:
-                if (arr == NULL) {
-                    printf("Array is empty. Please enter numbers first.\n");
-                } else {
-                    printf("Smallest element: %d\n", findSmallestElement(arr, size));
-                }
-                break;
-            case 6:
-                if (arr == NULL) {
-                    printf("Array is empty. Please enter numbers first.\n");
-                } else {
-                    printf("Sum of even elements: %d\n", sumOfEvenElements(arr, size));
-                }
-                break;
-            case 7:
-                printf("Exiting...\n");
-                break;
-            default:
-                printf("Invalid option. Please try again.\n");
-        }
-    } while (choice != 7);
-
-    if (arr != NULL) {
-        free(arr);
+int main(){
+    int *size = 0;
+    printf("Dynamic array example\n");
+    printf("Enter the number of elements: ");
+    scanf("%d", &size);
+    if (size <= 0) {
+        printf("Invalid size.\n");
+        return 1; // Invalid size
+    }
+    int* arr = readFromKeyInDynamicArray(size);
+    if (arr == NULL) {
+        return 1; // Memory allocation failed
     }
 
+    printDynamicArray(arr);
+    printf("Sum of elements: %d\n", sumDynamicArray(arr));
+    printf("Biggest element: %d\n", findBiggestElement(arr));
+    printf("Smallest element: %d\n", findSmallestElement(arr));
+    printf("Sum of even elements: %d\n", sumOfEvenElements(arr));
+
+    free(arr); // Free the allocated memory
     return 0;
+    
 }
