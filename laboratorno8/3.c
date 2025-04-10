@@ -16,17 +16,15 @@ typedef struct school{
 int main(){
     School s1;
     strcpy(s1.name, "Mathematical High School");
-    s1.yearFounded = 1990;
-    s1.numberOfStudents = 2;
-    strcpy(s1.students[0].name, "Ivan Andreev");
-    s1.students[0].age = 17;
-    s1.students[0].class = 12;
-    s1.students[0].grade = 5.50;
-    
-    strcpy(s1.students[1].name, "Krasimir Georgiev");
-    s1.students[1].age = 18;
-    s1.students[1].class = 12;
-    s1.students[1].grade = 6.00;
+    scanf("%d", &s1.yearFounded);
+    scanf("%d", &s1.numberOfStudents);
+    for (int i = 0; i < s1.numberOfStudents; i++)
+    {
+        scanf("%s", s1.students[i].name);
+        scanf("%d", &s1.students[i].age);
+        scanf("%d", &s1.students[i].class);
+        scanf("%lf", &s1.students[i].grade);
+    }
     
     printf("School name: %s\n", s1.name);
     printf("Year founded: %d\n", s1.yearFounded);

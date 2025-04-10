@@ -10,17 +10,17 @@ typedef struct vehicle{
 } Vehicle;
 int main(){
     Vehicle v1;
-    strcpy(v1.name, "BMW X5");
-    v1.year = 2020;
-    v1.price = 50000.00;
-    v1.doors = 4;
-    v1.seats = 5;
+    scanf("%s", v1.name);
+    scanf("%d", &v1.year);
+    scanf("%lf", &v1.price);
+    scanf("%d", &v1.doors);
+    scanf("%d", &v1.seats);
     Vehicle v2;
     strcpy(v2.name, "Boeing 747");
-    v2.year = 2015;
-    v2.price = 200000000.00;
-    v2.doors = 2;
-    v2.seats = 400;
+    scanf("%d", &v2.year);
+    scanf("%lf", &v2.price);
+    scanf("%d", &v2.doors);
+    scanf("%d", &v2.seats);
     printf("Vehicle name: %s\n", v1.name);
     printf("Year: %d\n", v1.year);
     printf("Price: %.2f\n", v1.price);
@@ -70,6 +70,6 @@ int main(){
     {
         printf("%s and %s have the same number of doors\n", v1.name, v2.name);
     }
-    
+
 
 }
