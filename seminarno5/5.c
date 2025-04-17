@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define WORD "concatenation"
+#define WORD "programming"
 
 int main() {
     char secret[] = WORD;
