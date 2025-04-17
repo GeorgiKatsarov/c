@@ -15,7 +15,7 @@ typedef struct school{
 } School;
 int main(){
     School s1;
-    strcpy(s1.name, "Mathematical High School");
+    scanf("%s", s1.name);
     scanf("%d", &s1.yearFounded);
     scanf("%d", &s1.numberOfStudents);
     for (int i = 0; i < s1.numberOfStudents; i++)
