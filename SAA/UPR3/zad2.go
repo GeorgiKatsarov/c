@@ -6,3 +6,10 @@ func power(x float64, n int) float64 {
 	} else {
 		return x * power(x, n-1)
 	}
+}
+int main() {
+	int base = 8;
+	int exponent = 10;
+	double result = power(base, exponent);
+	return 0;
+}
